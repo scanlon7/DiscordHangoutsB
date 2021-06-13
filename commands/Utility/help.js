@@ -16,16 +16,21 @@ module.exports = {
 
     if (!args[0]) {
       let categories = [];
-
+      const ignoreCategory = ['Test', 'System', 'Devs'] // List of category that you dont want on the help list
       readdirSync("./commands/").forEach((dir) => {
+        if(ignoreCategory.includes(dir)) return; //Ignoring the category that listed inside ignoreCategory
         const commands = readdirSync(`./commands/${dir}/`).filter((file) =>
           file.endsWith(".js")
         );
 
-        const cmds = commands.map((command) => {
+        const cmds = commands.filter((command) => { //Filtering the command
+          let file = require(`../../commands/${dir}/${command}`)
+
+          return !file.hidden; // ANY command that has "hidden: true" in the module.exports will not be listed on the help list
+        }).map((command) => {
           let file = require(`../../commands/${dir}/${command}`);
 
-          if (!file.name) return "No command name.";
+          // if (!file.name) return "No command name.";
 
           let name = file.name.replace(".js", "");
 
@@ -36,7 +41,7 @@ module.exports = {
 
         data = {
           name: dir, //.toUpperCase(),
-          value: cmds.length === 0 ? "In progress." : cmds.join(" "),
+          value: cmds.length === 0 ? "In progress." : cmds.join(" "), //If the category didnt have any command this line will be executed on the help list
         };
 
         categories.push(data);

@@ -3,7 +3,7 @@
   "version": "1.5.5",
   "versionModerator": "1.5.0",
   "description": "",
-  "main": "index.js",
+  "main": "shard.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "shard.js"

@@ -1,0 +1,65 @@
+{
+   "languages": ["english", "indonesia", "tagalog", "oof"],
+   "translations": {
+      "FEELS_LIKE": {
+         "english": "Feels like",
+         "indonesia": "Terasa seperti",
+         "tagalog": "Parang",
+         "oof": "Foofs loof"
+      },
+      "HUMIDITY": {
+         "english": "Humidity",
+         "indonesia": "Kelembaban",
+         "tagalog": "Humidity",
+         "oof": "Humoofy"
+      },
+      "TIMEZONE": {
+         "english": "Timezone",
+         "indonesia": "Zona waktu",
+         "tagalog": "Timezone",
+         "oof": "Oofzone"
+      },
+      "WIND": {
+         "english": "Wind",
+         "indonesia": "Angin",
+         "tagalog": "Hangin",
+         "oof": "Woof"
+      },
+      "DEGREE_TYPE": {
+         "english": "Degree Type",
+         "indonesia": "Jenis Derajat",
+         "tagalog": "uri ng degree",
+         "oof": "Degroof Type"
+      },
+      "TEMPERATURE": {
+         "english": "Temperature",
+         "indonesia": "Suhu",
+         "tagalog": "Temperatura",
+         "oof": "Ooferature"
+      },
+      "WEATHER_FORECAST_FOR": {
+         "english": "Weather forecast for",
+         "indonesia": "Prakiraan cuaca untuk",
+         "tagalog": "Weather forecast para sa",
+         "oof": "Oofer Foofcast For"
+      },
+      "BEG_RECEIVED": {
+         "english": "You begged and received",
+         "indonesia": "Anda memohon dan menerima",
+         "tagalog": "ikaw ay nagmakaawa at tumanggap",
+         "oof": "You oofed and received"
+      },
+      "BEG_FAILED": {
+         "english": "you begged but sadly no one give you money",
+         "indonesia": "Anda memohon tapi sayangnya tidak ada yang memberi Anda uang",
+         "tagalog": "ikaw ay nagmakaawa ngunit malungkot walang magbibigay sa iyo ng pera",
+         "oof": "You got A BUNCH of money but suddenly Thanos snapped the world. Resulting the money dissapeared"
+      },
+      "WORK_GET": {
+         "english": "You worked and received",
+         "indonesia": "Anda bekerja dan menerima",
+         "tagalog": "nagtrabaho ka at tumanggap",
+         "oof": "You woofed and received"
+      }
+   }
+}

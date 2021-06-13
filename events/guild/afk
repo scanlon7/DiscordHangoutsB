@@ -1,0 +1,18 @@
+const Discord = require('discord.js');
+const client = new Discord.Client();
+const moment = require('moment');
+const quick = require('quick.db')
+client.on('message', async(message) => {
+    if (!message.guild || message.author.bot) return;
+
+    const AFKMention = message.mentions.members.first();
+    if (AFKMention) {
+        const data = quick.get(`${message.author.id}_${message.guild.id}_afk`)
+        if(data) {
+            const { date, reason } = data;
+            const timeAgo = moment(date).fromNow()
+
+            message.reply(`${AFKMention} is currently AFK (${timeAgo})\nReason: ${reason}`)
+        }
+    }
+})

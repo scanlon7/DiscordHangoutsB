@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const fs = require('fs')
-require('dotenv').config();
+require('dotenv').config()
 const moment = require('moment');
 const client = new Discord.Client();
 

@@ -1,6 +1,7 @@
 require('dotenv').config();
 const PREFIX = process.env.prefix;
 const ms = require("ms");
+const moment = require('moment')
 const profileModel = require(`../../models/profileSchema.js`);
 const cooldown = '../../models/cooldownSchema.js'
 const specialOnlySchema = require('../../models/specialOnlySchema.js');
@@ -18,7 +19,6 @@ module.exports = async(Discord, client, message) => {
                 serverID: message.guild.id,
                 coins: 1000,
                 bank: 0,
-                cooldowns: []
             });
             profile.save();
         }
@@ -42,7 +42,7 @@ module.exports = async(Discord, client, message) => {
        try {
        async function commandExecute(){
            if(command){
-               if(command) command.execute(message, args, cmd, client, Discord, profileData);
+               command.execute(message, args, cmd, client, Discord, profileData);
            };
        }
        if(command.cooldown) {
@@ -87,6 +87,7 @@ module.exports = async(Discord, client, message) => {
            commandExecute();
        };
     } catch (error) {
+        console.log(err)
         return message.channel.send(`There was an error trying to execute **${command.name}**: \`${error.message}\``);
     }
 

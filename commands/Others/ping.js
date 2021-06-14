@@ -5,22 +5,22 @@ module.exports = {
     description: "Check the bot pings!",
     async execute(message, args, cmd, client, Discord){
 
-        const msg = await message.reply(new Discord.MessageEmbed()
+        const msg = await message.reply({ embeds: [new Discord.MessageEmbed()
         .setColor('RANDOM')
         .setAuthor(`🏓Pinging....`)
         .addField(`🤖 Bot Latency`, `🏓Pinging....`, true)
         .addField(`⚙️ API Latency`, `🏓Pinging....`, true)
         .setFooter(`Ping Requested by: ${message.author.tag}`)
-        )
+        ]})
 
-        msg.edit(new Discord.MessageEmbed()
+        msg.edit({ embeds: [new Discord.MessageEmbed()
         .setColor('RANDOM')
         .setAuthor(`🏓 Pong!`)
         .addField(`🤖 Bot Latency`, `${Math.floor(msg.createdAt - message.createdAt)}ms`, true)
         .addField(`⚙️ API Latency`, `${client.ws.ping}ms`, true)
         .addField(`Shard`, `Shard #${client.shard.ids}, **Total Shards: ${client.shard.count}**`, true)
         .setFooter(`Ping Requested by: ${message.author.tag}`)
-        );
+        ]});
 
     }
 }

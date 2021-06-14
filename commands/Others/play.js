@@ -14,7 +14,7 @@ module.exports = {
         .setDescription('I Don\'t know if this YT-Search dependency error or \"css-what\" error, but its making this \"4 ***high*** severity vulnerabilities\". I tried to update all of it, no fix. BUT when i uninstall yt-search it got fixed\n So yeah.. No music commands atm until the issue is resolved! (This issue also occurs to other developers so yeah.) <3\n~~~ AHumanThatUKnow#5275')
         .setColor('RED')
         .setFooter(`Written: 10/06/2021. The commands will be open once this issue got resolved! <3`)
-        message.channel.send(HighVulErrorYTS)
+        message.channel.send({ embeds: [HighVulErrorYTS] })
 //         const voice_channel = message.member.voice.channel;
 //         if (!voice_channel) return message.channel.send(':x: ***You need to be in a voice channel to use this command!.***');
 //         const permissions = voice_channel.permissionsFor(message.client.user);

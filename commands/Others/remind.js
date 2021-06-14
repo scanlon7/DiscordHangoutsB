@@ -23,7 +23,7 @@ module.exports = {
             .setColor('#F30B04')
             .setDescription(`**Please tell me what you want to be reminded off**`)
 
-        if (!args[0]) return message.channel.send(notime)
+        if (!args[0]) return message.channel.send({ embeds: [notime] })
         if (
             !args[0].endsWith("d") &&   
             !args[0].endsWith("m") &&
@@ -32,14 +32,14 @@ module.exports = {
         )
 
 
-            return message.channel.send(wrongtime)
-        if (!reminder) return message.channel.send(reminderembed)
+            return message.channel.send({ embeds: [wrongtime] })
+        if (!reminder) return message.channel.send({ embeds: [reminderembed] })
 
         const remindertime = new Discord.MessageEmbed()
         .setColor('#33F304')
         .setDescription(`\**Your reminder will go off in ${time}**`)
 
-        message.channel.send(remindertime)
+        message.channel.send({ embeds: [remindertime] })
 
         const reminderdm = new Discord.MessageEmbed()
         .setColor('#7289DA')
@@ -49,7 +49,7 @@ module.exports = {
         setTimeout(async function () {
            try{
 
-            await user.send(reminderdm)
+            await user.send({ embeds: [reminderdm] })
            }catch(err){
 
            } 

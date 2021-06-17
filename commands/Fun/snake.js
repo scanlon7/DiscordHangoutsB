@@ -16,6 +16,6 @@ module.exports = {
             timestamp: true,
             gameOverTitle: "**GAME OVER**\nBetter luck next time!"
         });
-        return message.reply(snakeGame.newGame(message));
+        return message.reply({ content: snakeGame.newGame(message) });
     }
 }

@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
+const client = new Discord.Client({
+  intents: ['GUILDS', 'GUILD_MESSAGES']
+});
 require('dotenv').config();
 const MyStickyChannelID = '844878448065118249';
 let cacheMsgs = [];

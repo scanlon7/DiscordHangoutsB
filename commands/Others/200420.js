@@ -2,7 +2,9 @@ const { Client } = require('discord.io');
 const Discord = require('discord.js');
 
 require('dotenv').config();
-const client = new Discord.Client();
+const client = new Discord.Client({
+    intents: ['GUILDS', 'GUILD_MESSAGES']
+});
 
 const code = 200420;
 //info.js = 2

@@ -8,19 +8,19 @@ module.exports = {
     description: 'wait... Terminal on a command !?!?',
     usage: '',
     async execute(message, args, cmd, client, Discord) {
-        if(message.author.id !== '383401432948277249') return message.channel.send(
+        if(message.author.id !== '383401432948277249') return message.channel.send({ embeds: [
             new MessageEmbed()
             .setTitle("Special List")
             .setColor('RED')
-            .setDescription("❌ | You do not have permission to use this command (Owner only)"))
+            .setDescription("❌ | You do not have permission to use this command (Owner only)")] })
 
         const command = args.join(" ");
 
-        if(!command) return message.reply("Please specify a command to execute!");
+        if(!command) return message.reply({ content: "Please specify a command to execute!" });
 
         child.exec(command, (err, res) => {
             if(err) return console.log(err);
-            message.channel.send(res.slice(0, 2000), { code: 'js' })
+            message.channel.send({ content: [res.slice(0, 2000), { code: 'js' }] })
         })
     }
 }

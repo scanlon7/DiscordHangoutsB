@@ -47,9 +47,9 @@ module.exports = {
 
         let guess = args[0];
         if (!guess && guildAttempts.get(guild.id).attempts === 1) {
-            return channel.send(pickinganumber)
+            return channel.send({ embeds: [pickinganumber] })
         } else if (!guess) {
-            return channel.send(provideaguess);
+            return channel.send({ embeds: [provideaguess] });
         }
 
         if (+guess === guildNumber.get(guild.id)) {
@@ -57,7 +57,7 @@ module.exports = {
 
             const guessedthenumber = new Discord.MessageEmbed()
                 .setColor('#33F304')
-                .setDescription(`✅ Perfect, <@${member.id}>the number was ${guildNumber.get(guild.id)}, it only took you ${attempts.attempts} attempts!`)
+                .setDescription({ content: `✅ Perfect, <@${member.id}>the number was ${guildNumber.get(guild.id)}, it only took you ${attempts.attempts} attempts!` })
 
             channel.send(guessedthenumber);
             guildNumber.delete(guild.id);
@@ -66,15 +66,15 @@ module.exports = {
 
             return;
         } else if (+ guess < guildNumber.get(guild.id)) {
-            return message.reply(`${guess} Is too low!`).then(guessTooLow => {
+            return message.reply({ content: `${guess} Is too low!` }).then(guessTooLow => {
                 setTimeout(() => guessTooLow.delete(), 10000)
             })
         } else if (+guess > guildNumber.get(guild.id)) {
-            return message.reply(`${guess} Is too high!`).then(guessTooHigh => {
+            return message.reply({ content: `${guess} Is too high!` }).then(guessTooHigh => {
                 setTimeout(() => guessTooHigh.delete(), 10000)
             })
         } else {
-            return message.reply("Invalid number please try again").then(invalidNumber => {
+            return message.reply({ content: "Invalid number please try again" }).then(invalidNumber => {
                 setTimeout(() => invalidNumber.delete(), 10000)
             })
         }

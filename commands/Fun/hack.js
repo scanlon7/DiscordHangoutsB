@@ -25,65 +25,65 @@ module.exports = {
         ]
         var IPrandom = ips[Math.floor(Math.random() * ips.length)];
 
-        if (!args[0]) return message.channel.send('Who are you going to hack???')
+        if (!args[0]) return message.channel.send({ content: 'Who are you going to hack???' })
         const HackedPerson = args.slice(0).join(" ") && args.shift().toLowerCase()
 
-        let msg = await message.channel.send(`Hacking ${HackedPerson}...`)
+        let msg = await message.channel.send({ content: `Hacking ${HackedPerson}...` })
         let time = 3 * 1000
         setTimeout(function () {
-            msg.edit(`[▖] Finding discord gmail ${HackedPerson}... `)
+            msg.edit({ content: `[▖] Finding discord gmail ${HackedPerson}... ` })
         }, time)
         time += 3 * 1000
         setTimeout(function () {
-            msg.edit(`[▘] Gmail: ${HackedPerson}@gmail.com`)
+            msg.edit({ content: `[▘] Gmail: ${HackedPerson}@gmail.com` })
         }, time)
         time += 3 * 1000
         setTimeout(function () {
-            msg.edit(`[▝] Getting user password...`)
+            msg.edit({ content: `[▝] Getting user password...` })
         }, time)
         time += 3 * 1000
         setTimeout(function () {
-            msg.edit(`[▗] Password: \`\`\`*********\`\`\``)
+            msg.edit({ content: `[▗] Password: \`\`\`*********\`\`\`` })
         }, time)
         time += 3 * 1000
         setTimeout(function () {
-            msg.edit(`[▖] Getting account access...`)
+            msg.edit({ content: `[▖] Getting account access...` })
         }, time)
         time += 3 * 1000
         setTimeout(function () {
-            msg.edit(`[▘] Collecting data...  `)
+            msg.edit({ content: `[▘] Collecting data... ` })
         }, time)
         time += 3 * 1000
         setTimeout(function () {
-            msg.edit(`[▝] Hacking all accounts linked to ${HackedPerson}@gmail.com....`)
+            msg.edit({ content: `[▝] Hacking all accounts linked to ${HackedPerson}@gmail.com....` })
         }, time)
         time += 3 * 1000
         setTimeout(function () {
-            msg.edit(`[▗] Finding IP Address...`)
+            msg.edit({ content: `[▗] Finding IP Address...` })
         }, time)
         time += 3 * 1000
         setTimeout(function () {
-            msg.edit(`[▖] Ip: ${IPrandom}`)
+            msg.edit({ content: `[▖] Ip: ${IPrandom}` })
         }, time)
         time += 3 * 1000
         setTimeout(function () {
-            msg.edit(`[▘] Information collected...`)
+            msg.edit({ content: `[▘] Information collected...` })
         }, time)
         time += 3 * 1000
         setTimeout(function () {
-            msg.edit(`[▝] Downloading virus  `)
+            msg.edit({ content: `[▝] Downloading virus ` })
         }, time)
         time += 3 * 1000
         setTimeout(function () {
-            msg.edit(`[▗]Destroying friends list`)
+            msg.edit({ content: `[▗]Destroying friends list` })
         }, time)
         time += 3 * 1000
         setTimeout(function () {
-            msg.edit(`[▖] Getting results...`)
+            msg.edit({ content: `[▖] Getting results...`})
         }, time)
         time += 3 * 1000
         setTimeout(function () {
-            msg.edit(` ${HackedPerson} Successfully hacked!`)
+            msg.edit({ content: `${HackedPerson} Successfully hacked!` })
         }, time)
     }
 }

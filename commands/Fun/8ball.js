@@ -15,9 +15,9 @@ module.exports = {
         .setAuthor('🎱 The 8 Ball says...')
         .setColor('RANDOM').addField('Question:', question)
         .addField('Answer:', replies[result]);
-      await message.channel.send(embed); // send embed message
+      await message.channel.send({ embeds: [embed] }); // send embed message
     } else {
-      await message.channel.send(`**Question:**\n${question}\n**Answer:**\n${replies[result]}`); // no permissins so bot will default to a raw message
+      await message.channel.send({ content: `**Question:**\n${question}\n**Answer:**\n${replies[result]}` }); // no permissins so bot will default to a raw message
     }
   },
 };

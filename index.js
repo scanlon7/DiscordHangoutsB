@@ -2,7 +2,9 @@ const Discord = require('discord.js');
 const fs = require('fs')
 require('dotenv').config()
 const moment = require('moment');
-const client = new Discord.Client();
+const client = new Discord.Client({
+    intents: ['GUILDS', 'GUILD_MESSAGES']
+});
 
 const quick = require('quick.db');
 const ms = require('ms');

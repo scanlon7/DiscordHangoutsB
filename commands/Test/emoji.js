@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
-const client = new Discord.Client();
+const client = new Discord.Client({
+    intents: ['GUILDS', 'GUILD_MESSAGES']
+});
 
 let emojiID = ["802859067264466975", "799977886421221446", "721307177431728158"]
 

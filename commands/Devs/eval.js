@@ -10,7 +10,7 @@ module.exports = {
         const { member, channel, content } = message
         //if(message.member.id !== DevList) return message.channel.send(`Sorry only **The Devs or Special People** can run this command 😔`);
         const result = eval(content.replace('9eval', ''))
-        channel.send(result)
+        channel.send({ content: result })
         //} else {
            //return message.channel.send(`Sorry only **The Devs or Special People** can run this command 😔`);
         //}

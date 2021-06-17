@@ -1,7 +1,9 @@
 const Discord = require('discord.js');
 const { Client } = require('discord.io');
 
-const client = new Discord.Client();
+const client = new Discord.Client({
+    intents: ['GUILDS', 'GUILD_MESSAGES']
+});
 
 require('dotenv').config();
 client.login(process.env.token); 

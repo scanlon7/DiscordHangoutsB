@@ -7,7 +7,7 @@ module.exports = {
     description: "Check the bot pings!",
     async execute(message, args, cmd, client, Discord){
 
-        const msg = await message.reply({ embeds: [new Discord.MessageEmbed()
+        const msg = await message.channel.send({ embeds: [new Discord.MessageEmbed()
         .setColor('RANDOM')
         .setAuthor(`🏓Pinging....`)
         .addField(`🤖 Bot Latency`, `🏓Pinging....`, true)

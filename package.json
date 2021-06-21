@@ -8,11 +8,9 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node shard.js"
     },
-
     "engines": {
         "node": "14.x",
         "npm": "7.x"
-        
     },
     "repository": {
         "type": "git",
@@ -31,7 +29,7 @@
         "discord-buttons": "^3.2.1",
         "discord-xp": "^1.1.14",
         "discord.io": "^2.5.3",
-        "discord.js": "^13.0.0-dev.a3cbcca13da1af416c219bd64a0a6e84bb87a057",
+        "discord.js": "^13.0.0-dev.c850ae10270076c4b2e10b130dd8f88eed4ed201",
         "dotenv": "^10.0.0",
         "ffmpeg-static": "^4.3.0",
         "fs": "^0.0.1-security",

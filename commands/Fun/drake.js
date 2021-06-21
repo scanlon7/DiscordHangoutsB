@@ -14,7 +14,7 @@ module.exports = {
         });
         let Image = await res.buffer();
         const drakememe = new Discord.MessageAttachment(Image);
-        message.channel.send({ content: 'If you getting "undefined" on Text 2, be sure to use coma (",") after text 1!', embeds: [drakememe] });
+        message.channel.send({ content: 'If you getting "undefined" on Text 2, be sure to use coma (",") after text 1!', file: drakememe });
 
     }
 }

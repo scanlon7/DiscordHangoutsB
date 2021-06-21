@@ -1,10 +1,20 @@
+const { MessageEmbed } = require("discord.js");
+
 module.exports = {
     name: 'updatelog',
     aliases: ['update', 'log'],
+    cooldown: 60,
     description: "Update Log of the bot",
     execute(message, args, cmd, client, Discord){
-        message.channel.send('Update 1.5.5:\n1.Added AFK command(9afk [reason])\n2.Revamped ping command\n3.Revamped info command\n3.Fixed Guess The Number bug!\n4.Leveling system is now LIVE!\nAnd Others!');
+        const update = new MessageEmbed()
+        .setColor('RANDOM')
+        .setTitle('1.5.5 UPDATE IS HERE!')
+        .setDescription(`1.Added FUN command\n2.HELP command is finnaly here!\n3.More UTILITY command\n3.More Revamp!, i guess.\n4.Bot cooldown now saved and didn't reset when reboot\n5.Some command now support Language Feature\nAnd Others!`)
+        .setFooter(`${client.user.displayAvatarURL()}| Requested by: ${message.author.tag}`)
+        
+        .addField('NOTE', `Because "Discord JS" v13 is following the new Discord API (v8), some of the features may missing or the bot didnt respond at all!. Hope you all understand!\n\n\n   ~AHumanThatUKnow#5275`)
+      
+        message.channel.send({ embed: update });
  
-        message.channel.send(`Note: This is probably my last update for now, i have to focus on exams and its really stressing me out. Hope you all enjoy the update!\n\n\n   ~AHumanThatUKnow#5275`);
     }
 };

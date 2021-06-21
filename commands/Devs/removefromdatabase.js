@@ -1,27 +1,20 @@
 const profileModel = require("../../models/profileSchema");
-const DevList = new Set(
-  ["383401432948277249"], 
-  ["723491267144581201"]
-);
 
 module.exports = {
   name: "removefromdatabase",
   aliases: ["removefromdb", "removefdb"],
   description: "Removes player coins",
   async execute(message, args, cmd, client, discord, profileData) {
-
-    if(message.member.id != DevList) return message.channel.send(`Sorry only **The Devs** can run this command 😔`);
-
-    if (!args.length) return message.channel.send("You need to mention a player to remove their coins");
+    if (!args.length) return message.channel.send({ content: "You need to mention a player to remove their coins" });
     const amount = args[1];
     const target = message.mentions.users.first();
-    if (!target) return message.channel.send("That user does not exist");
+    if (!target) return message.channel.send({ content: "That user does not exist"});
 
-    if (amount % 1 != 0 || amount <= 0) return message.channel.send("Remove amount must be a whole number");
+    if (amount % 1 != 0 || amount <= 0) return message.channel.send({ content: "Remove amount must be a whole number" });
 
     try {
       const targetData = await profileModel.findOne({ userID: target.id });
-      if (!targetData) return message.channel.send(`This user doens't exist in the db`);
+      if (!targetData) return message.channel.send({ content: `This user doens't exist in the db` });
 
       await profileModel.findOneAndUpdate(
         {
@@ -34,7 +27,7 @@ module.exports = {
         }
       );
 
-      return message.channel.send(`${amount} of coins has been removed from ${target}!`);
+      return message.channel.send({ content: `${amount} of coins has been removed from ${target}!` });
     } catch (err) {
       console.log(err);
     }

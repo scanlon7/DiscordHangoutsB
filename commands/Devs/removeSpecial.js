@@ -6,11 +6,11 @@ module.exports = {
   aliases: ["rspecial"],
   description: "Remove the mentioned from the Special List, If a user had this, they can use Features that others cant!",
   async execute(message, args, cmd, client, Discord) {
-    if(message.author.id !== '383401432948277249') return message.channel.send({ embeds: [
+    if(message.author.id !== '383401432948277249') return message.channel.send({ embed: 
       new MessageEmbed()
       .setTitle("Special List")
       .setColor('RED')
-      .setDescription("❌ | You do not have permission to use this command (Owner only)")] })
+      .setDescription("❌ | You do not have permission to use this command (Owner only)") })
 
 
       let member = message.mentions.members.first() 

@@ -1,9 +1,9 @@
-require('dotenv').config();
+require("dotenv").config();
 const PREFIX = process.env.prefix;
 const ms = require("ms");
-const moment = require('moment')
-const profileModel = require(`../../models/profileSchema.js`);
-const cooldown = '../../models/cooldownSchema.js'
+const moment = require("moment")
+const profileModel = require('../../models/profileSchema.js');
+const cooldown = require('../../models/cooldownSchema')
 const specialOnlySchema = require('../../models/specialOnlySchema.js');
 
 //var quick = require('quick.db');
@@ -34,7 +34,7 @@ module.exports = async(Discord, client, message) => {
     if (!command) return //message.channel.send("This command doesn't exist!");
 
     if (command.special && !(await specialOnlySchema.findOne({ User: message.author.id })))
-       return message.reply("You need to have to be IN the Special List to gain this Features");
+       return message.channel.send({ content: "You need to have to be IN the Special List to gain this Features" });
 
 
 
@@ -59,16 +59,16 @@ module.exports = async(Discord, client, message) => {
                        if(time_left.toFixed(1) >= 3600){
                            let hour = (time_left.toFixed(1) / 3600).toLocaleString();
                            if(hour.includes('.')) hour = (hour.split('.'))[0]
-                           return message.reply(`Please wait ${hour.toLocaleString()} more hours before using \`${command.name}\`!`)
+                           return message.channel.send({ content: `Please wait ${hour.toLocaleString()} more hours before using \`${command.name}\`!` })
                        }
                        if(time_left.toFixed(1) >= 60) {
                            let minute = (time_left.toFixed(1) / 60).toLowerCase();
                            if(minute.includes('.')) minute = (minute.split('.'))[0]
-                           return message.reply(`Please wait ${minute} more minutes before using \`${command.name}\`!`)
+                           return message.channel.send({ content: `Please wait ${minute} more minutes before using \`${command.name}\`!` })
                        }
                        let seconds = (time_left.toFixed(1)).toLocaleString();
                        if(seconds.includes('.')) seconds = (seconds.split('.'))[0]
-                       return message.reply(`Please wait ${seconds} more seconds before using \`${command.name}\`!`)
+                       return message.channel.send({ content: `Please wait ${seconds} more seconds before using \`${command.name}\`!` })
                        } else {
                            await cooldown.findOneAndUpdate({ userId: message.author.id, cmd: command.name }, { time: current_time });
                            commandExecute();
@@ -88,7 +88,7 @@ module.exports = async(Discord, client, message) => {
        };
     } catch (error) {
         console.log(err)
-        return message.channel.send(`There was an error trying to execute **${command.name}**: \`${error.message}\``);
+        return message.channel.send({ content: `There was an error trying to execute **${command.name}**: \`${error.message}\`` });
     }
 
 

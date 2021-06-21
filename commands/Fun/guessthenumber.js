@@ -47,9 +47,9 @@ module.exports = {
 
         let guess = args[0];
         if (!guess && guildAttempts.get(guild.id).attempts === 1) {
-            return channel.send({ embeds: [pickinganumber] })
+            return channel.send({ embed: pickinganumber })
         } else if (!guess) {
-            return channel.send({ embeds: [provideaguess] });
+            return channel.send({ embed: provideaguess });
         }
 
         if (+guess === guildNumber.get(guild.id)) {

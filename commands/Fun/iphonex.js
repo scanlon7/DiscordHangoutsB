@@ -19,7 +19,7 @@ module.exports = {
             let res = await fetch(encodeURI(`https://nekobot.xyz/api/imagegen?type=iphonex&url=${mention.user.displayAvatarURL({ size: 1024 })}`));
             let json = await res.json();
             let attachment = new Discord.MessageAttachment(json.message, "iphonex-syze.png");
-            await message.channel.send({ embeds: [attachment] });
+            await message.channel.send({ file: attachment });
             message.channel.stopTyping();
             m.delete();
         } catch (e) {

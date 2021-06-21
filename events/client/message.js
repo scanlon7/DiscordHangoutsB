@@ -1,13 +1,6 @@
-const Discord = require('discord.js');
-const { Client } = require('discord.io');
-const client = new Discord.Client({
-    intents: ['GUILDS', 'GUILD_MESSAGES']
-});
-
-
 module.exports = (Discord, Client, message, args) => {
     if (message.content.toLowerCase().includes() === 'hello') {
-        message.channel.send('Hello there!');
+        message.channel.send({ content: 'Hello there!' });
     } else if (message.content.toLowerCase().includes() === 'hi') {
         message.channel.send('Hello there!');
     } else if (message.content.toLowerCase().includes() === 'hallo') {

@@ -41,7 +41,6 @@ mongoose.connect(process.env.MONGODB_SRV, {
 
 
 
-require('discord-buttons')(client)
 
 
 
@@ -120,7 +119,7 @@ const PREFIX = process.env.prefix;
 // });
 
 
-client.on('message', async message=>{
+client.on('messageCreate', async message=>{
 
     if(!message.content.startsWith(PREFIX) || message.author.bot) return;
     

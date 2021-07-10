@@ -34,7 +34,7 @@ module.exports = async (client) => {
         client.slashCommands.set(file.name, file);
     });
 
-    client.on('ready', () => {
+    client.on('ready', async () => {
         await client.guilds.cache.get("701675821751992331").commands.set(arrayOfSlashCommands);
     })
 };;

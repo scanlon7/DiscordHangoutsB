@@ -26,9 +26,7 @@ client.events = new Discord.Collection();
 
 const mongoose = require("mongoose");
 
-['command_handler', 'event_handler'].forEach(handler => {
-    require(`./handlers/${handler}`)(client, Discord);
-})
+require("./handlers")(client, Discord);
 
 
 mongoose.connect(process.env.MONGODB_SRV, {

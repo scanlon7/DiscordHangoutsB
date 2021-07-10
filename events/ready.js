@@ -1,15 +1,10 @@
-const Discord = require('discord.js');
-const { Client } = require('discord.io');
-
-const client = new Discord.Client({
-    intents: ['GUILDS', 'GUILD_MESSAGES']
-});
+const client = require("../index.js")
 
 require('dotenv').config();
 client.login(process.env.token); 
 
-const { loadLanguages } = require('../../language')
-const levels = require ('../../level.js')
+const { loadLanguages } = require('../language')
+const levels = require ('../level.js')
 
 
 

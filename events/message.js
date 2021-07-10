@@ -2,9 +2,9 @@ require("dotenv").config();
 const PREFIX = process.env.prefix;
 const ms = require("ms");
 const moment = require("moment")
-const profileModel = require('../../models/profileSchema.js');
-const cooldown = require('../../models/cooldownSchema')
-const specialOnlySchema = require('../../models/specialOnlySchema.js');
+const profileModel = require('../models/profileSchema.js');
+const cooldown = require('../models/cooldownSchema')
+const specialOnlySchema = require('../models/specialOnlySchema.js');
 
 //var quick = require('quick.db');
 module.exports = async(Discord, client, message) => {
@@ -151,4 +151,21 @@ module.exports = async(Discord, client, message) => {
     // } catch (error) {
     //     return message.channel.send(`There was an error trying to execute **${command.name}**: \`${error.message}\``);
     // }
+}
+module.exports = (Discord, Client, message, args) => {
+    if (message.content.toLowerCase() === 'hello') {
+        message.channel.send({ content: 'Hello there!' });
+    } else if (message.content.toLowerCase() === 'hi') {
+        message.channel.send('Hello there!');
+    } else if (message.content.toLowerCase() === 'hallo') {
+        message.channel.send('Hello there!');
+    } else if (message.content.toLowerCase() === 'allo') {
+        message.channel.send('Hello there!');
+    }else if (message.content.toLowerCase() === 'good morning') {
+        message.channel.send(`Good morning, ${message.author}!`);
+    } else if (message.content.toLowerCase() === 'good night') {
+        message.channel.send(`Good night, ${message.author}!`);
+    } else if (message.content.toLowerCase() === 'bye') {
+        message.channel.send('Goodbye.');
+    }
 }

@@ -3,16 +3,25 @@ const fs = require('fs')
 require('dotenv').config()
 const moment = require('moment');
 const client = new Discord.Client({
-    intents: ['GUILDS', 'GUILD_MESSAGES']
+    intents: [
+        "GUILDS",
+        "GUILD_MEMBERS",
+        "GUILD_BANS",
+        "GUILD_EMOJIS",
+        "GUILD_MESSAGE_REACTIONS",
+        "GUILD_MESSAGES",
+    ],
 });
+module.exports = client;
 
 const quick = require('quick.db');
 const ms = require('ms');
 
 
 
-client.snipes = [];
+client.slashCommands = new Discord.Collection();
 client.commands = new Discord.Collection();
+client.snipes = new Discord.Collection();
 client.events = new Discord.Collection();
 
 const mongoose = require("mongoose");

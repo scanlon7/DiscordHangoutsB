@@ -1,11 +1,11 @@
 const Discord = require('discord.js');
-const client = new Discord.Client({
-    intents: ['GUILDS', 'GUILD_MESSAGES']
-});
+const client = require("../../index.js")
 module.exports = {
     name: 'ping',
     description: "Check the bot pings!",
     async execute(message, args, cmd, client, Discord){
+
+        const WebSocket = client.ws.ping;
 
         const msg = await message.channel.send({ embeds: [new Discord.MessageEmbed()
         .setColor('RANDOM')
@@ -16,10 +16,10 @@ module.exports = {
         ]})
 
         msg.edit({ embeds: [new Discord.MessageEmbed()
-        .setColor('RANDOM')
+        .setColor(WebSocket < 150 ? "GREEN" : WebSocket < 500 ? "YELLOW" : "RED")
         .setAuthor(`🏓 Pong!`)
         .addField(`🤖 Bot Latency`, `${Math.floor(msg.createdAt - message.createdAt)}ms`, true)
-        .addField(`⚙️ API Latency`, `${client.ws.ping}ms`, true)
+        .addField(`⚙️ API Latency`, `${WebSocket}ms`, true)
         .addField(`Shard`, `Shard #${client.shard.ids}, **Total Shards: ${client.shard.count}**`, true)
         .setFooter(`Ping Requested by: ${message.author.tag}`)
         ]});

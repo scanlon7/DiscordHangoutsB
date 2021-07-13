@@ -1,7 +1,7 @@
 const client = require("../index.js")
 
 require('dotenv').config();
-client.login(process.env.token); 
+
 
 const { loadLanguages } = require('../language')
 const levels = require ('../level.js')
@@ -11,6 +11,7 @@ const levels = require ('../level.js')
 
 
 module.exports = () =>{
+    client.login(process.env.token); 
     console.log(`HANGOUTS bot is online!`)
     
     loadLanguages(client)

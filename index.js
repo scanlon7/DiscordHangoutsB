@@ -51,7 +51,7 @@ mongoose.connect(process.env.MONGODB_SRV, {
 
 
 
-client.on('message', async (message) =>{
+client.on('messageCreate', async (message) =>{
     if (message.author.bot) return;
 
 

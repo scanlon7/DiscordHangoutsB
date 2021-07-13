@@ -11,5 +11,5 @@
 //         }
 //     }
 
-//     ['client', 'guild'].forEach(e => load_dir(e));
+//     ['events'].forEach(e => load_dir(e));
 // }

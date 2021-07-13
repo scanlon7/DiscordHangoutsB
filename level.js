@@ -4,7 +4,7 @@ require ('dotenv').config()
 const UserSettingsSchema = require('./models/userSettingsSchema');
 
 module.exports = (client) => {
-    client.on('message', message => {
+    client.on('messageCreate', message => {
         if(message.content.startsWith(process.env.prefix) || message.author.bot) return
         const { guild, member } = message
 

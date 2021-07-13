@@ -1,4 +1,4 @@
-const client = require("../index.js");
+const client = require("../../index.js");
 
 module.exports = (Discord, client, message, args) => {
     let snipes = client.snipes.get(message.channel.id) || [];

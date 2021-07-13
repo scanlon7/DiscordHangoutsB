@@ -2,9 +2,9 @@ require("dotenv").config();
 const PREFIX = process.env.prefix;
 const ms = require("ms");
 const moment = require("moment")
-const profileModel = require('../models/profileSchema.js');
-const cooldown = require('../models/cooldownSchema')
-const specialOnlySchema = require('../models/specialOnlySchema.js');
+const profileModel = require('../../models/profileSchema.js');
+const cooldown = require('../../models/cooldownSchema')
+const specialOnlySchema = require('../../models/specialOnlySchema.js');
 
 //var quick = require('quick.db');
 module.exports = async(Discord, client, message) => {

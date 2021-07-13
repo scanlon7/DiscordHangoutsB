@@ -1,10 +1,10 @@
-const client = require("../index.js")
+const client = require("../../index.js")
 
 require('dotenv').config();
 
 
-const { loadLanguages } = require('../language')
-const levels = require ('../level.js')
+const { loadLanguages } = require('../../language')
+const levels = require ('../../level.js')
 
 
 

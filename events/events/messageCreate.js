@@ -119,38 +119,25 @@ module.exports = async(Discord, client, message) => {
     // time_stamps.set(message.author.id, current_time);
     // setTimeout(() => time_stamps.delete(message.author.id), cooldown_amount);
 
-//// see if the user of this message is afk and has set there status as afk in the messaged server
-//const status = quick.get(`${message.author.id}_${message.guild.id}_afk`);
-//// if the statue is afk then take them out of the afk status
-//if (status && status.active && message.guild.me.hasPermission('MANAGE_NICKNAMES' || 'ADMINISTRATOR')) {
-  //// restart the data if this users afk status without removing them form the database
-  //quick.set(`${message.author.id}_${message.guild.id}_afk`, {
-    //username: message.author.username,
-    //active: false,
-    //date: null,
-  //});
-  //// try changing the members nickname
-  //await message.member
-    //.setNickname(status.username)
-    //// Once the members nickname has been changed back then send a message with the time they were afk
-    //.then(() => {
-      //message.reply(`You were afk for ${ms(Date.now() - (status.date || 0))}`);
-    //})
-    //// catch an error and then remove the member form the database and send a message
-    //.catch(_e => {
-      //quick.delete(`${message.author.id}_${message.guild.id}_afk`);
-      //message.reply('Failed to set your statuse.');
-      //console.log(error)
-    //});
-//}
+    
 
 
 
-    // try{
-    // if(command) command.execute(message, args, cmd, client, Discord, profileData);
-    // } catch (error) {
-    //     return message.channel.send(`There was an error trying to execute **${command.name}**: \`${error.message}\``);
-    // }
+
+    // AFK 
+    if (!message.guild || message.author.bot) return;
+
+    const AFKMention = message.mentions.members.first();
+    if (AFKMention) {
+        const data = quick.get(`${message.author.id}_${message.guild.id}_afk`)
+        if(data) {
+            const { date, reason } = data;
+            const timeAgo = moment (date) .fromNow ()
+
+            message.reply(`${AFKMention} is currently AFK (${timeAgo})\nReason: ${reason}`)
+        }
+    }
+})
 }
 module.exports = (Discord, Client, message, args) => {
     if (message.content.toLowerCase() === 'hello') {

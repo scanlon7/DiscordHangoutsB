@@ -78,13 +78,13 @@ module.exports = async (client, Discord) => {
 
     slashCommands.map((value) => {
         const file = require(value);
-        if(!file?.name) return;
+        if(!file.name) return;
 
         client.slashCommands.set(file.name, file);
         arrayOfSlashCommands.push(file)
     });
 
-    // client.on('ready', async () => {
-    //     await client.guilds.cache.get("701675821751992331").set(arrayOfSlashCommands);
-    // })
+    client.on('ready', async () => {
+        await client.guilds.cache.get("701675821751992331").commands.set(arrayOfSlashCommands);
+    })
 };;

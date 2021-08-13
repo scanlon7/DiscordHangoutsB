@@ -1,7 +1,5 @@
 const Discord = require('discord.js');
-const client = new Discord.Client({
-    intents: ['GUILDS', 'GUILD_MESSAGES']
-});
+const client = require("../../index.js");
 //const disbut = require('discord-buttons')(client);
 
 const flags = {
@@ -33,133 +31,57 @@ module.exports = {
 
         const userFlags = await user.flags.toArray();
 
-        //let UsrInf = new disbut.MessageButton()
-        //.setLabel('User Info (UPCOMING)')
-        //.setStyle('green')
-        //.setID('usrinf')
-
-        //let MemberInfo = new disbut.MessageButton()
-        //.setLabel('Member Info (UPCOMING)')
-        //.setStyle('red')
-        //.setID('meminf')
-
-
-    
-
-                const MemInfE = new Discord.MessageEmbed()
-                .setAuthor(`User info for ${user.username}`,//Member info for ${user.username}`,
-                user.displayAvatarURL()
-                )
-                .setColor('RANDOM')
-                .addFields(
-                    {
-                        name: '**❯ User Tag**',
-                        value: user.tag,
-                    },
-                    {
-                        name: '**❯ User ID**',
-                        value: user.id,
-                    },
-                    {
-                        name: '**❯ Is BOT**',
-                        value: user.bot,
-                    },
-                    {
-                        name: '**❯ Flags:**',
-                        value: await userFlags.length ? userFlags.map(flag => flags[flag]).join(', ') : 'None',
-                    },
-                    {
-                        name: '**❯ Status:**',
-                        value: user.presence.status,
-                    },
-                    {
-                        name: '**❯ Game:**',
-                        value: user.presence.game || 'Not playing a game.',
-                    },
-                    {
-                        name: '**❯ Joined Discord**',
-                        value: new Date(user.createdTimestamp).toLocaleDateString(),
-                    },
-                    {
-                       name: '**❯ Nickname**',
-                       value: member.nickname || 'None',
-                    },
-                    {
-                       name: '**❯ Joined Server**',
-                       value: new Date(member.joinedTimestamp).toLocaleDateString(),
-                    },
-                    {
-                       name: '**❯ Role Count**',
-                       value: member.roles.cache.size - 1,
-                    }
-                )
-
-
-                const UsrInfE = new Discord.MessageEmbed()
-                .setAuthor(`User info for ${user.username}`,
-                 user.displayAvatarURL()
-                 )
-                .setColor('RANDOM')
-                .addFields(
-                    {
-                        name: '**❯ User Tag**',
-                        value: user.tag,
-                    },
-                    {
-                        name: '**❯ User ID**',
-                        value: user.id,
-                    },
-                    {
-                        name: '**❯ Is BOT**',
-                        value: user.bot,
-                    },
-                    {
-                        name: '**❯ Flags:**',
-                        value: await userFlags.length ? userFlags.map(flag => flags[flag]).join(', ') : 'None',
-                    },
-                    {
-                        name: '**❯ Status:**',
-                        value: user.presence.status,
-                    },
-                    {
-                        name: '**❯ Game:**',
-                        value: user.presence.game || 'Not playing a game.',
-                    },
-                    {
-                        name: '**❯ Joined Discord**',
-                        value: new Date(user.createdTimestamp).toLocaleDateString(),
-                    }
-                )
-
-    try {
-        const choose = await message.channel.send('What Do You wanna see?', {
-          //buttons: [
-            //UsrInf, MemberInfo
-          //],
-          embed: MemInfE
-        });
-
-        
-    } catch (err) {
-        console.log(err)
-    }
-
-
-
-
-
+        const EmbedInfo = new Discord.MessageEmbed()
+        .setAuthor(`User info for ${user.username}`,
+        user.displayAvatarURL()
+        )
+        .setColor('RANDOM')
+        .addFields(
+            {
+                name: '**❯ User Tag**',
+                value: `${user.tag}`,
+            },
+            {
+                name: '**❯ User ID**',
+                value: `${user.id}`,
+            },
+            {
+                name: '**❯ Is BOT**',
+                value: `${user.bot}`,
+            },
+            {
+                name: '**❯ Flags:**',
+                value: `${await userFlags.length ? userFlags.map(flag => flags[flag]).join(', ') : 'None'}`,
+            },
+            {
+                name: '**❯ Status:**',
+                value: `${user.presence.status}`,
+            },
+            {
+                name: '**❯ Game:**',
+                value: `${user.presence.game}` || 'Not playing a game.',
+            },
+            {
+                name: '**❯ Joined Discord**',
+                value: `${new Date(user.createdTimestamp).toLocaleDateString()}`,
+            },
+            {
+                name: '**❯ Nickname**',
+                value: `${member.nickname}` || 'None',
+            },
+            {
+                name: '**❯ Joined Server**',
+                value: `${new Date(member.joinedTimestamp).toLocaleDateString()}`,
+            },
+            {
+                name: '**❯ Role Count**',
+               value: `${member.roles.cache.size - 1}`,
+            }
+        )
+        try {
+            message.reply({ embeds: [EmbedInfo] });
+        } catch (err) {
+            console.log(err)
+        }
     }
 }
-//client.on('clickButton', async (button) => {
-  //button.think(true)
-  //if (button.id === 'meminf') {
-                
-      //await button.channel.send({embed: MemInfE});
-  //}
-  //if (button.id === 'usrinf') {
-
-                
-      //await button.channel.send({embed: UsrInfE});
-  //}
-//button.defer()
-//});

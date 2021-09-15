@@ -6,7 +6,7 @@ const globPromise = promisify(glob);
 const Discord = require("discord.js");
 const client = require("../index.js");
 
-module.exports = async (client, Discord) => {
+module.exports = async (client, Discord, message) => {
     // Commands
     // const commandFiles = await globPromise(`${process.cwd()}/commands/**/*.js`);
     // commandFiles.map((value) => {
@@ -64,7 +64,7 @@ module.exports = async (client, Discord) => {
         for(const file of event_files){
             const event = require(`../events/${dirs}/${file}`);
             const event_name = file.split('.')[0];
-            client.on(event_name, event.bind(null, Discord, client))
+            client.on(event_name, event.bind(null, Discord, client, message))
         }
     }
 
